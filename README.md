@@ -2,6 +2,7 @@
 
 This checklist is to help the City of Boston Digital's Team make sure that every new site, or app that we launch isn't missing anything.
 
+- [ ] App automatically tested and deployed via Travis (alerts should funnel into the #digital_builds channel in Slack)
 - [ ] Install Google Analytics
 - [ ] Install error reporting (alerts should funnel into the #digital_monitoring channel in Slack)
 - [ ] Setup site monitoring (alerts should funnel into the #digital_monitoring channel in Slack)
