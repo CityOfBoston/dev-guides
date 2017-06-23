@@ -264,6 +264,20 @@ does that well and is free for our open source repositories.
 The city already used Travis for other things so we did not investigate other
 options, given that Travis meets our needs.
 
+#### [Husky](https://github.com/typicode/husky)
+
+To ensure that linting, type checking, and tests are run locally before pushing
+a PR, we use Husky to run precommit/prepush hooks defined in package.json. We
+ensure that files are linted before commit, and that Flow and Jest pass before
+push.
+
+We additionally use [lint-staged](https://github.com/okonet/lint-staged) to
+speed up linting on commits.
+
+Linting at this point is not run in `--fix` mode because you don’t want to have
+to deal with staging the lint fixes if there are purposely unstaged files in the
+working directory.
+
 #### [Heroku](https://heroku.com/)
 
 Heroku lets us easily and automatically run staging servers for continuous
