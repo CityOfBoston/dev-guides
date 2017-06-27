@@ -252,6 +252,28 @@ Developing components in Storybook can be a kind of TDD for UIs, though it does
 impose an overhead when you change component props to update the stories as
 well.
 
+#### [StoryShots](https://github.com/storybooks/storybook/tree/master/addons/storyshots)
+
+StoryShots turns Storybook Stories into Jest snapshot tests. Given that we
+already want Stories and Jest snapshot tests, this tool lets us write them in
+one place and get both the visualization / development advantages of Storybook
+and the automated checking of Jest snapshots.
+
+This also has the nice side effect of effectively generating coverage reports
+for our Stories, so we can see what cases are actually visualized.
+
+#### [Percy](https://percy.io/)
+
+Percy is another tool we can use alongside Storybook. It takes the DOM from the
+Stories we generate and renders it to do visual regression testing. This is
+kicked off from Travis but appears as its own pre-merge check on PRs. You then
+explicitly approve any visual changes on Percy to make the check “pass.”
+
+While our webapps have a low chance of *unexpected* visual breakages (especially
+since Percy is explicitly not a cross-browser testing tool), Percy is still very
+useful as a way to essentially automatically include screenshots of visual
+changes in PRs, something that is typically done manually.
+
 #### [GitHub](https://github.com/)
 
 Obvs.
