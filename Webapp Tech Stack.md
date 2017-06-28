@@ -330,3 +330,12 @@ Chasing tiny patch upgrades to libraries can be a risky time sink, especially
 across multiple app that are working fine, but Greenkeeper at least keeps us
 abreast of changes and will be useful to monitor for any security updates that
 we should prioritize.
+
+#### [Yarn](https://yarnpkg.com/)
+
+We chose Yarn for its explicitly consistent (rather than logically consistent)
+layout of `node_modules`, which ideally reduces the “delete `node_modules` and
+re-install” workflow to fix import problems.
+
+We haven’t revisited this decision since npm5’s release, however, and its speed
+and improved lockfile and GitHub support are worth paying attention to.
