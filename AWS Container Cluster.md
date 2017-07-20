@@ -345,10 +345,10 @@ Add the following to the .travis.yml file:
 
 ```
 before_deploy:
-- ./scripts/install-ecs-cli.sh
+- ./deploy/install-ecs-cli.sh
 deploy:
   provider: script
-  script: node ./scripts/ecs-deploy.js
+  script: node ./deploy/ecs-deploy.js
   on:
     branch: develop
 ```
@@ -407,8 +407,9 @@ These will be different app-to-app.
 
 Install [Docker](https://www.docker.com/) for your desktop.
 
-Run `docker build -t app:dev .` in the repository directory. Docker should
-build the container, installing node_modules and building the JavaScript.
+Run `docker build -t app:dev -f deploy/Dockerfile .` in the repository
+directory. Docker should build the container, installing node_modules and
+building the JavaScript.
 
 Start the container with `docker run -p 3000:3000 -e NODE_ENV=production --entrypoint= --rm app:dev npm start`
 
@@ -434,7 +435,7 @@ In order to run the deploy script, you will need to set all of the environment
 variables above, excluding `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and
 `AWS_DEFAULT_REGION`.
 
-Run `node scripts/ecs-deploy.js` to build the container, push it to the ECR, and
+Run `node deploy/ecs-deploy.js` to build the container, push it to the ECR, and
 deploy a new version of the service.
 
 ## Monitoring
